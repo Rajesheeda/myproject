@@ -1,0 +1,15 @@
+{% extends 'try_first/base.html' %} <!-- extends the base file -->
+
+{%block body%} <!-- we are extending base file if we want to write more code in the current file need to use it  -->
+  <ul>
+    {% for i in all_album %} <!-- see in view.py it was overrided by object_list -->
+     <li><a href="{% url 'try_first:detail' i.id %}">{{i.album_title}}</a></li>
+    {% endfor %}
+   </ul>
+<!--    {% for i in all_album %}
+   <-- <li><a href='/try_first/{{i.id}}/'>{{i.album_title}}</a></li> ->
+     <li><a href="{% url 'try_first:detail' i.id %}">{{i.album_title}}</a></li>
+    {% endfor %}
+</ul> -->
+
+{%endblock%} <!-- same as above -->

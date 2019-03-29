@@ -1,0 +1,23 @@
+{% extends 'try_first/base.html' %} <!-- extends the base file -->
+{%block title%}Album details{%endblock %}
+
+{%block body%} <!-- we are extending base file if we want to write more code in the current file need to use it  -->
+
+<img src="{{album.album_logo}}">
+<h1> {{album.album_title}}</h1>
+<h3>{{album.artist}}</h3>
+
+<!--
+<form action="{% url 'try_first:favorite' album.id %}"  method="post">
+    {% csrf_token %} -->
+    {% for song in album.song_set.all %}
+        {{song.song_title}}
+        {% if song.is_favorite %}
+          <img src="http://i.imgur.com/b9b13Rd.png" />
+        {% endif %}
+    <br>
+    {% endfor %}
+</form>
+
+{%endblock%}
+<!-- same as above -->
